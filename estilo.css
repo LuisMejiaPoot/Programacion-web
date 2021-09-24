@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+}
+
+.contenedor > div{
+    border: 1px red solid;
+    font-size: 20px;
+}
+
+.formulario + article{
+    color:red
+}
+.contenedor2 ~ article {
+    color:green
+}
+.color_morado{
+    color: purple !important;
+}
+
+
+
+.seccion{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    gap: 1rem;
+    flex-wrap: wrap;
+    
+}
+.seccion > article {
+    width: 25%;
+    border: 1px red solid;
+    text-align: center;
+}
+.formulario{
+    border: 1px red solid;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+
+.div_formulario{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.div_formulario > label{
+    width: 80%;
+    margin: auto;
+}
+.div_formulario > input, select{
+    width: 80%;
+    margin: auto;
+    border: 0px;
+    border-bottom: 1px black solid;
+}
+
+@media (max-width: 600px) {
+    .contenedor{
+       
+        grid-template-columns: repeat(1,1fr);
+    }
+    .contenedor > div{
+        font-size: 25px;
+        color:purple;
+    }
+    .seccion >article {
+        width: 100%;
+    }
+  }

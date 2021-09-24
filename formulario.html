@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    
+    <form action="enviar.php" method="get" class="formulario" >
+        <div class="div_formulario">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" value="Jose Antonio" readonly >
+        </div>
+        <div class="div_formulario">
+            <label for="nombre">Contraseñ</label>
+            <input type="password" name="nombre" value="" required >
+        </div>
+
+        <div class="div_formulario">
+            <label for="nombre">Color</label>
+            <input type="color" name="nombre" value=""  >
+        </div>
+        <div class="div_formulario">
+            <label for="nombre">Archivo</label>
+            <input type="file" name="nombre" value=""  >
+        </div>
+        <div class="div_formulario">
+            <label for="nombre">Fecha</label>
+            <input type="date" name="nombre" value=""  >
+        </div>
+        <div class="div_formulario">
+            <label for="edad">Edad</label>
+            <input type="number" name="edad">
+        </div>
+
+        <div class="div_formulario">
+            <label for="correo">Correo</label>
+            <input type="email" name="correo" autocomplete="off">
+        </div>
+
+        <div class="div_formulario">
+            <label for="pais">Paises</label>
+            <select name="pais" >
+                <option value="Mexico">Mexico</option>
+                <option value="0">Brasil</option>
+                <option value="pais">Argentina</option>
+            </select>
+        </div>
+        <div class="div_formulario">
+            <label for="">Tipo musica</label>
+            <label for="musica">Rock<input type="radio" name="musica" value="rock"></label>
+            <label for="musica" >POP <input type="radio" name="musica" value="pop"></label>
+            <label for="musica">CLASICA<input type="radio" name="musica" value="clasica"></label>
+            <label for="">Alternativo <input type="radio" name="musica_diferente" value="alternativa"></label>
+            <label for="">Alternativo 2 <input type="radio" name="musica_diferente" value="alternativa"></label>
+
+        </div>
+
+        <div class="div_formulario">
+            <label for="">Libros</label>
+            <label for="">
+                Terror  <input type="checkbox" value="terror">
+            </label>
+            <label for="">
+                Romatico  <input type="checkbox" value="romatico">
+            </label>
+        </div>
+
+        <div class="div_formulario">
+            <label for="">Comentario</label>
+            <textarea name="" id="" cols="100" rows="25"></textarea>
+        </div>
+
+        <div style="display: flex;justify-content: center;">
+            <input type="submit" value="Guardar">
+        </div>
+     
+        
+    </form>
+
+    
+</body>
+</html>
