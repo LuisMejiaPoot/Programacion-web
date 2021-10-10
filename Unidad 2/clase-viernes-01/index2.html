@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <ul id="calificaciones">
+    </ul>
+
+
+    <p>Contador</p>
+    <h1 class="contador">0</h1>
+    <div>
+        <button class="mas">+</button>
+        <button class="menos">-</button>
+    </div>
+
+    <br><br><br><br><br>
+    <div>
+        <form action="">
+            
+            <label for="">
+                Nombre:
+                <input type="text" name="nombre" id="nombre">
+            </label>
+
+            <div style="height: 10px;"></div>
+
+            <label for="">Materias
+
+                <select name="" id="materias">
+                    <option value="1">Matematicas</option>
+                    <option value="2">Español</option>
+                    <option value="3">Ingles</option>
+                </select>
+            </label>
+            <div style="height: 10px;"></div>
+
+            <label for="">facil
+                <input type="radio" name="dificultad" class="dificultad" value="facil" id="">
+            </label>
+            <label for="">Intermedio
+                <input type="radio" name="dificultad" class="dificultad"  value="intermedio" id="">
+            </label>
+
+            <label for="">Dificil
+                <input type="radio" name="dificultad" class="dificultad" value="dificil" id="">
+            </label>
+            <div style="height: 10px;"></div>
+            <input type="submit" value="Guardar" id="btnGuardar">
+        </form>
+    </div>
+
+    <template id="template_calificaciones">
+        <li class="calificacion" style="border: 1px red solid;">
+            <span class="alumno"></span>
+            <span class="cal"></span>
+            <!-- <img class="image" src="" alt=""> -->
+        </li>
+    </template>
+
+
+    <style>
+        .text-danger{
+            color: red;
+        }
+        .text-success{
+            color: green;;
+        }
+        .image{
+            width: 100px;
+        }
+    </style>
+
+    <script src="scripts2.js"></script>
+</body>
+</html>

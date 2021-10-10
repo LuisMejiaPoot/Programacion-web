@@ -1,0 +1,24 @@
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+}
+
+.sub_contenedor{
+    border: 1px red solid;
+}
+
+.imagen {
+    width: 100px;
+}
+.imagen > img{
+    width: 100%;
+}
+
+.text-danger{
+    color: red;
+}
+.text-success{
+ color: green;
+ font-size: 25px;
+}

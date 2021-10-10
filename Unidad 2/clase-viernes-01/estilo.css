@@ -1,0 +1,72 @@
+
+.sub_container{
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+    border: 5px purple solid;
+}
+.sub_container > div {
+    border: 1px red solid;
+}
+.sub_container__formulario{
+    width: 30%;
+   display: flex;
+   flex-direction: column;
+}
+.sub_container__tarjetas{
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr); 
+    /* 3 tarjetas por fila  */
+    gap:1rem
+}
+.tarjeta{
+    border: 1px blue solid;
+    display: flex;
+    flex-direction: column;
+}
+.titulo{
+    text-align: center;
+}
+
+.cuerpo1{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+}
+.cuerpo1 > div {
+    border: 1px red solid;
+}
+.cuerpo2{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+.cuerpo2 > div {
+    border: 1px green solid;
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    background-color: blue;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.header > div > a{
+    color: white;
+   
+}
+.sub_container__formulario > input {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+
+.fuente {
+    font-size: 50px;
+}
