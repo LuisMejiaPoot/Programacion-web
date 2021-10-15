@@ -5,6 +5,12 @@ const template  =  document.querySelector("#template").content
 const fragment =  document.createDocumentFragment()
 const contenedor_productos =  document.querySelector("#contenedor_productos")
 
+const btn_ver_carrito =  document.getElementById("irCarrito")
+
+btn_ver_carrito.addEventListener("click",function (e) {
+    
+    location.href ="ver_carrito.html"
+})
 
 fetch('https://fakestoreapi.com/products/categories')
 .then(json=>json.json())
@@ -109,5 +115,31 @@ function ver_mas(id) {
 
 function agregar_carrito(id) {
     
-    alert(id)
+
+
+    if(!localStorage.getItem("carrito")){
+
+        let products = []
+
+        products.push(id)
+        products =  JSON.stringify(products)
+        localStorage.setItem("carrito",products)
+
+        alert("Producto agregado")
+    }else{
+        let products =  localStorage.getItem("carrito")  // json de productos
+        products =  JSON.parse(products)  // json a arreglo
+
+        if (products.includes(id)) {
+            alert("El product ya existe")
+            return;
+        }
+        products.push(id)
+
+        let  json  =  JSON.stringify(products)
+        localStorage.setItem("carrito",json)
+        alert("Producto agregado")
+
+    }
+
 }
