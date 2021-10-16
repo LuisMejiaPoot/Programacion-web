@@ -63,3 +63,20 @@ a{
     color: white;
     text-decoration: none;
 }
+.border_table{
+    border: 1px red solid;
+}
+
+.eliminar{
+    background-color: red;
+    padding: 10px;
+    color: white;
+    margin-bottom: 5px;
+}
+.editar{
+    background-color: blue;
+    padding: 10px;
+    color: white;
+    margin-bottom: 5px;
+
+}

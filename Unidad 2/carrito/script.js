@@ -120,24 +120,33 @@ function agregar_carrito(id) {
     if(!localStorage.getItem("carrito")){
 
         let products = []
-
+        let quantities =  []
         products.push(id)
+        quantities.push(1)
         products =  JSON.stringify(products)
         localStorage.setItem("carrito",products)
+        localStorage.setItem("quantities",JSON.stringify(quantities))
+        
 
         alert("Producto agregado")
     }else{
         let products =  localStorage.getItem("carrito")  // json de productos
         products =  JSON.parse(products)  // json a arreglo
 
+        let quantities =  localStorage.getItem("quantities")
+        quantities = JSON.parse(quantities)
+
         if (products.includes(id)) {
             alert("El product ya existe")
             return;
         }
         products.push(id)
+        quantities.push(1)
 
         let  json  =  JSON.stringify(products)
         localStorage.setItem("carrito",json)
+
+        localStorage.setItem("quantities",JSON.stringify(quantities))
         alert("Producto agregado")
 
     }
