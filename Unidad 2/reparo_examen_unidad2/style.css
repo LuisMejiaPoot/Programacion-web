@@ -1,0 +1,35 @@
+.titulo > h1{
+    text-align: center;
+}
+.container-button{
+    display: flex;
+    justify-content: center;
+}
+.container-dogs{
+    margin-top: 20px;
+    border: 1px red solid;
+}
+.dog{
+    border: 1px blue solid;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    gap:1rem;
+}
+.dog-img{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    border: 1px green solid;
+}
+.dog-img > div{
+    width: 100px;
+
+    /* height: 125px; */
+}
+.dog-img >div > img{
+    width: 100%;
+}
+.dog-text{
+    width: 75%;
+}
