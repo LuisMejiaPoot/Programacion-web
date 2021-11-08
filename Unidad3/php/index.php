@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
 </head>
 <body>
     <?php
-    
+    include "connection.php";
     if(isset($_GET["save"])){
         if($_GET["save"]){
             echo "<p>El usuario ".$_GET["nombre"]." fue insertado</p>";
@@ -17,37 +19,78 @@
         }
     }
     ?>
+    <div class="container mx-auto">
     <form action="guardar.php" method="POST">
-        <div class="div_input">
-            <label for="user_name">Nombre</label>
-            <input type="text" name="user_name" id="" required>
-        </div>
-        <div class="div_input">
-            <label for="last_name">Apellidos</label>
-            <input type="text" name="last_name" id="" required>
-        </div>
-        <div class="div_input">
-            <label for="email">Correo</label>
-            <input type="email" name="email" id="" required>
-        </div>
-        <div class="div_input">
-            <label for="phone">Telefono</label>
-            <input type="text" name="phone" id="" required>
-        </div>
 
-        <div>
-            <input type="submit" value="Guardar">
-        </div>
-    </form>
+    <div class="form-group">
+        <label for="user_name">Nombre</label>
+        <input type="text" class="form-control" name="user_name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="last_name">Apellidos</label>
+        <input type="text" class="form-control" name="last_name" required>
+    </div>
+
+
+    <div class="form-group">
+        <label for="email">Correo</label>
+        <input type="email" class="form-control" name="email" required>
+    </div>
+
+
+    <div class="form-group">
+        <label for="phone">Telefono</label>
+        <input type="text" class="form-control" name="phone" required>
+    </div>
+
+    <div>
+        <input type="submit" value="Guardar" class="btn btn-primary">
+    </div>
+</form>
+    </div>
 <br><br><br>.
     <?php
     
-    $conn = mysqli_connect("127.0.0.1", "root", "", "programacion_web");
+    $obj =  new connection();
+    $conn = $obj->connection_db();
     $sql = "SELECT * FROM users";
-    $result = $conn->query($sql);     
-    while($row = $result->fetch_assoc()) {
-        echo  $row["id"]. " - Name: " . $row["name"]. " " . $row["last_name"]. "<br>";
-      }  
+    $result = $conn->query($sql);      
     ?>
+    <table class="table container mx-auto">
+      <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Correo</th>
+            <th>Telefono</th>
+            <th></th>
+        </tr>
+        <?php 
+            while($row = $result->fetch_assoc()) {
+
+        ?>
+
+            <tr>
+                <td><?php echo $row["name"] ?></td>
+                <td><?php echo $row["last_name"] ?></td>
+                <td><?php echo $row["email"] ?></td>
+                <td><?php echo $row["phone"] ?></td>
+                <td>
+                    <a href="form_update.php?id_user=<?php echo $row['id']?>" class="btn btn-success">Actualizar</a>
+                    <a href="delete.php?id_user=<?php echo $row['id']?>" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+
+        <?php
+        
+            }
+        ?>
+      </thead>
+    </table>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+
 </html>
