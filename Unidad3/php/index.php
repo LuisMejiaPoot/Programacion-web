@@ -20,7 +20,9 @@
     }
     ?>
     <div class="container mx-auto">
-    <form action="guardar.php" method="POST">
+    <br><br><br>
+    <h4 class="text-center" id="user_message"></h4>
+    <form action="guardar.php" method="POST" class="form_ajax">
 
     <div class="form-group">
         <label for="user_name">Nombre</label>
@@ -47,6 +49,8 @@
     <div>
         <input type="submit" value="Guardar" class="btn btn-primary">
     </div>
+
+
 </form>
     </div>
 <br><br><br>.
@@ -57,7 +61,7 @@
     $sql = "SELECT * FROM users";
     $result = $conn->query($sql);      
     ?>
-    <table class="table container mx-auto">
+    <table class="table container mx-auto table-user">
       <thead class="thead-dark">
         <tr>
             <th>Nombre</th>
@@ -71,14 +75,14 @@
 
         ?>
 
-            <tr>
+            <tr id="fila-<?php echo $row['id'] ?>">
                 <td><?php echo $row["name"] ?></td>
                 <td><?php echo $row["last_name"] ?></td>
                 <td><?php echo $row["email"] ?></td>
                 <td><?php echo $row["phone"] ?></td>
                 <td>
                     <a href="form_update.php?id_user=<?php echo $row['id']?>" class="btn btn-success">Actualizar</a>
-                    <a href="delete.php?id_user=<?php echo $row['id']?>" class="btn btn-danger">Eliminar</a>
+                <button class="btn btn-danger" onclick="eliminar(<?php echo $row['id']?>)"  >Eliminar</button>
                 </td>
             </tr>
 
@@ -89,8 +93,9 @@
       </thead>
     </table>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-
+<script src="script.app.js"></script>
 </html>

@@ -9,23 +9,47 @@ $conn = $obj->connection_db();
 // $last_name  =  $_GET["last_name"];
 // $email =  $_GET["email"];
 
-// print_r($_POST);
+
+// $name  =  $_POST["user_name"];
+// $last_name  =  $_POST["last_name"];
+// $email =  $_POST["email"];
+// $phone =  $_POST["phone"];
 
 
-$name  =  $_POST["user_name"];
-$last_name  =  $_POST["last_name"];
-$email =  $_POST["email"];
-$phone =  $_POST["phone"];
+$form = [];
+parse_str( $_POST["form"],$form);
+$name  =  $form["user_name"];
+$last_name = $form["last_name"];
+$email = $form["email"];
+$phone=$form["phone"];
+
+
 
 
 
 
 $sql  = "insert into users (name, last_name,email,phone) values ('".$name."', '".$last_name."','".$email."','".$phone."' )";
+$response = [];
 if ($conn->query($sql) === TRUE) {
-    header('Location: index.php?save=true&nombre='.$name);
+    $response["status"] = "success";
+    $response["message"] ="Usuario guardado existosamente";
+    $sql = "select * from users where email = '".$email."'";
+
+    $result =  $conn->query($sql);
+    $data_user =  $result->fetch_assoc();
+ 
+    $response["data_user"] =  $data_user;
+    // header('Location: index.php?save=true&nombre='.$name);
   } else {
-    header('Location: index.php?save=false');
+    $response["status"] = "error";
+    $response["message"] ="Error:intente mas tarde";
+    // header('Location: index.php?save=false');
   }
+
+ 
+  $json_response = json_encode($response);
+  echo $json_response;
+  exit;
 
 // if (!$conn) {
 //     die('No pudo conectarse: ' . mysqli_connect_errno());
