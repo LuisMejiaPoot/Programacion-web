@@ -1,0 +1,13 @@
+.contenedor-dashboard{
+    
+    display: grid;
+    gap: 1rem;
+    width: 90%;
+    grid-template-columns: repeat(4,1fr);
+}
+.contenedor-dashboard > div{
+    border: 1px gray solid;
+}
+.contenedor-dashboard > div > form {
+    padding: 5px;
+}
